@@ -54,19 +54,30 @@ export default function Home() {
     },
   ];
 
+  const aboutText = `I'm a Cloud & AI Engineer based in Framingham, MA, focused on building infrastructure that's secure, scalable, and production-ready. My path here wasn't traditional — I spent six years in banking operations, most recently as an Assistant Branch Manager, before making the shift into cloud engineering. That background shapes how I work: I think in terms of risk, process, and accountability, and it also taught me how to lead, communicate clearly, and work well with people at every level.
+
+I'm driven by a genuine love of learning. Cloud and AI move fast, and I treat that as the fun part of the job, not a burden. I'm constantly building, breaking, and rebuilding projects to understand systems at a deeper level. Whether working independently or collaborating with a team, I bring the same motivation: show up prepared, communicate clearly, and take ownership of the outcome.
+
+My hands-on portfolio spans the full AWS stack — from foundational projects like static site hosting, EC2 hardening, and least-privilege IAM audits, to advanced builds like Kubernetes-based APIs with CI/CD and monitoring, multi-agent AWS operations systems, and healthcare architecture with RDS and Bedrock. I also build AI into my infrastructure work — RAG pipelines, AI agents, and observability projects designed to catch and troubleshoot real failure modes.
+
+Every project includes documentation, architecture diagrams, and a breakdown of what broke and how I fixed it, because understanding a system deeply matters more than just standing it up.`;
+
   const skills = [
-    "Cloud Architecture",
-    "AWS (Lambda, EC2, VPC, CodePipeline, DynamoDB)",
-    "Infrastructure as Code (Terraform)",
-    "CI/CD Pipelines",
-    "Python",
+    "AWS (EC2, Lambda, VPC, CodePipeline, DynamoDB, S3, RDS, Bedrock)",
+    "Cloud Architecture & Design",
+    "Infrastructure as Code (Terraform, CloudFormation)",
+    "CI/CD Pipelines (CodePipeline, CodeBuild, CodeDeploy)",
+    "Kubernetes & Container Orchestration",
+    "Python & Bash Scripting",
     "JavaScript/TypeScript",
-    "Next.js",
-    "Linux Administration",
-    "Security Hardening",
+    "Next.js & Full-stack Development",
+    "Linux Administration & Security Hardening",
+    "AI/ML Infrastructure (RAG, AI Agents)",
+    "Monitoring & Observability (Prometheus, Grafana)",
     "Event-driven Architecture",
-    "Least-privilege IAM",
-    "Full-stack Development",
+    "Least-privilege IAM & Security",
+    "Risk Assessment & Process Design",
+    "Team Leadership & Communication",
   ];
 
   return (
@@ -75,6 +86,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold">Jamil</h1>
           <nav className="flex gap-6 text-sm">
+            <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400">
+              About
+            </a>
             <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400">
               Projects
             </a>
@@ -95,12 +109,15 @@ export default function Home() {
 
       <main className="max-w-4xl mx-auto px-6">
         <section className="py-20">
-          <h2 className="text-5xl font-bold mb-6">Cloud Engineer & Full-stack Developer</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-            Building production-grade cloud infrastructure and AI-powered products.
+          <h2 className="text-5xl font-bold mb-6">Cloud & AI Engineer</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+            Framingham, MA • Open to work (Recruiters only)
           </p>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-            Specialized in AWS, Infrastructure as Code, CI/CD pipelines, and building systems that scale.
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            Building secure, scalable, production-ready infrastructure with a focus on AWS, CI/CD, and AI infrastructure.
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-500 mb-8">
+            Targeting: Cloud Engineer, DevOps, AI Infrastructure/MLOps roles • Growth path: Cloud Engineer → Platform Engineer → AI Infrastructure Engineer
           </p>
           <div className="flex gap-4">
             <a
@@ -112,13 +129,24 @@ export default function Home() {
               View on GitHub
             </a>
             <a
-              href="https://linkedin.com/in/jamil-azeez"
+              href="https://linkedin.com/in/jamil-lyons-77261777"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition"
             >
               LinkedIn
             </a>
+          </div>
+        </section>
+
+        <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900/30 -mx-6 px-6">
+          <div className="max-w-4xl">
+            <h3 className="text-3xl font-bold mb-8">About Me</h3>
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              {aboutText.split("\n\n").map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </section>
 
