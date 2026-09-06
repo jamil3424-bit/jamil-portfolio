@@ -4,6 +4,193 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
+  const [activeNav, setActiveNav] = useState("home");
+
+  const projects = [
+    {
+      name: "CloudShift Simulator",
+      description: "A simulated cloud engineering workday with 80 tickets. Every ticket has a tempting wrong answer — it grades the judgment call, not whether you created the resource.",
+      image: "🚀",
+    },
+    {
+      name: "Ninth Employee",
+      description: "AI agency for lead generation and operations. Multi-product platform: marketing site, lead-generation engine, and internal ops console.",
+      image: "🤖",
+    },
+    {
+      name: "Banking Fraud Detection",
+      description: "Event-driven architecture on AWS with Lambda + DynamoDB Streams. Dual-architecture for fraud detection and explanations.",
+      image: "🔒",
+    },
+    {
+      name: "Multi-AZ AWS VPC",
+      description: "Production-grade infrastructure as code. Reusable Terraform modules with least-privilege security groups.",
+      image: "☁️",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      <div className="flex h-screen">
+        {/* SIDEBAR */}
+        <div className="w-80 bg-gradient-to-b from-slate-900 to-black border-r border-slate-800 p-8 flex flex-col fixed left-0 top-0 h-screen overflow-y-auto">
+          {/* Avatar */}
+          <div className="flex flex-col items-center mb-10">
+            <div className="relative mb-6">
+              <div className="absolute -inset-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-lg opacity-50"></div>
+              <div className="relative w-28 h-28 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1 border-2 border-white/10">
+                <Image
+                  src="/profile.jpg"
+                  alt="Jamil"
+                  width={112}
+                  height={112}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+            </div>
+            <h1 className="text-2xl font-bold">Jamil Lyons</h1>
+            <p className="text-xs text-slate-400 mt-2 tracking-widest">PORTFOLIO</p>
+          </div>
+
+          {/* Status */}
+          <div className="flex items-center gap-2 mb-8 px-3 py-2 bg-green-500/10 border border-green-500/30 rounded-full w-fit text-sm">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span className="text-green-300 text-xs">Available for work</span>
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 space-y-2">
+            {[
+              { id: "home", label: "Home" },
+              { id: "about", label: "About" },
+              { id: "projects", label: "Projects" },
+              { id: "skills", label: "Skills" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveNav(item.id)}
+                className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
+                  activeNav === item.id
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Links */}
+          <div className="border-t border-slate-800 pt-6 space-y-2 text-xs">
+            <a href="https://github.com/jamil3424-bit" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition">
+              <span>→</span> GitHub
+            </a>
+            <a href="https://linkedin.com/in/jamil-lyons-77261777" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition">
+              <span>→</span> LinkedIn
+            </a>
+            <a href="mailto:jamil3424@gmail.com" className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition">
+              <span>→</span> Email
+            </a>
+          </div>
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div className="ml-80 flex-1 overflow-y-auto bg-black">
+          {/* HOME */}
+          {activeNav === "home" && (
+            <section className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black flex items-center px-16">
+              <div className="grid grid-cols-2 gap-20 w-full max-w-6xl">
+                <div className="flex flex-col justify-center space-y-6">
+                  <div>
+                    <h1 className="text-8xl font-black leading-tight">
+                      <span className="block text-slate-500 text-6xl mb-2">Hi, I'm</span>
+                      <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Jamil Lyons
+                      </span>
+                    </h1>
+                  </div>
+                  <p className="text-lg text-slate-400 max-w-lg">Cloud & AI Engineer building secure, scalable infrastructure. Specialized in AWS, Infrastructure as Code, and DevOps.</p>
+                  <div className="flex gap-4 pt-2">
+                    <a href="https://github.com/jamil3424-bit" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:shadow-xl hover:shadow-blue-500/30 transition font-semibold text-sm">
+                      View GitHub
+                    </a>
+                    <a href="mailto:jamil3424@gmail.com" className="px-8 py-3 border border-slate-600 rounded-lg hover:border-blue-400 transition font-semibold text-sm">
+                      Contact
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <div className="relative">
+                    <div className="absolute -inset-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30"></div>
+                    <div className="relative w-80 h-80 rounded-3xl overflow-hidden border-2 border-gradient-to-br from-blue-500 to-purple-600 bg-gradient-to-br from-blue-600 to-purple-700">
+                      <Image src="/profile.jpg" alt="Jamil" width={320} height={320} className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* ABOUT */}
+          {activeNav === "about" && (
+            <section className="min-h-screen bg-black px-16 py-24">
+              <div className="max-w-3xl space-y-6">
+                <h2 className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-8">About Me</h2>
+                <p className="text-slate-300 text-lg leading-relaxed">I'm a Cloud & AI Engineer based in Framingham, MA, building secure, scalable infrastructure. I spent six years in banking operations before shifting into cloud engineering. That background shapes how I work: I think in terms of risk, process, and accountability.</p>
+                <p className="text-slate-300 text-lg leading-relaxed">Cloud and AI move fast, and I treat that as the fun part of the job. I'm constantly building, breaking, and rebuilding projects to understand systems deeply.</p>
+                <p className="text-slate-300 text-lg leading-relaxed">My hands-on portfolio spans the full AWS stack — from foundational projects to advanced builds like Kubernetes APIs, multi-agent AWS operations, and healthcare architecture with RDS and Bedrock.</p>
+                <p className="text-blue-400 text-lg pt-4">Targeting: Cloud Engineer, DevOps, AI Infrastructure/MLOps roles</p>
+              </div>
+            </section>
+          )}
+
+          {/* PROJECTS */}
+          {activeNav === "projects" && (
+            <section className="min-h-screen bg-black px-16 py-24">
+              <div className="max-w-4xl">
+                <h2 className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-12">Featured Projects</h2>
+                <div className="grid gap-6">
+                  {projects.map((project, i) => (
+                    <div key={i} className="group p-8 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-slate-900/80 hover:to-blue-950/30 transition-all duration-300">
+                      <div className="flex items-start gap-6">
+                        <span className="text-4xl">{project.image}</span>
+                        <div>
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-400 transition">{project.name}</h3>
+                          <p className="text-slate-400">{project.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* SKILLS */}
+          {activeNav === "skills" && (
+            <section className="min-h-screen bg-black px-16 py-24">
+              <div className="max-w-4xl">
+                <h2 className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-12">Skills & Technologies</h2>
+                <div className="grid grid-cols-2 gap-4">
+                  {["AWS (EC2, Lambda, VPC, CodePipeline, DynamoDB)", "Cloud Architecture", "Terraform/IaC", "CI/CD Pipelines", "Kubernetes", "Python & Bash", "JavaScript/TypeScript", "Next.js", "Linux Admin", "AI/ML Infrastructure", "Monitoring & Observability", "Event-driven Architecture", "Security & IAM", "Process Design", "Leadership"].map((skill, i) => (
+                    <div key={i} className="p-4 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-lg hover:border-blue-500/50 transition">
+                      <p className="text-slate-200 font-medium text-sm">{skill}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+import Image from "next/image";
+import { useState } from "react";
+
+export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
 
   const projects = [
