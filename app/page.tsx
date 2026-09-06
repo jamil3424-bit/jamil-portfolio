@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Home() {
   const projects = [
     {
@@ -108,7 +110,16 @@ Every project includes documentation, architecture diagrams, and a breakdown of 
       </header>
 
       <main className="max-w-4xl mx-auto px-6">
-        <section className="py-20">
+        <section className="py-20 flex flex-col items-center text-center">
+          <div className="mb-8 relative w-40 h-40">
+            <Image
+              src="/profile.jpg"
+              alt="Jamil Lyons"
+              fill
+              className="rounded-full object-cover border-4 border-blue-600"
+              priority
+            />
+          </div>
           <h2 className="text-5xl font-bold mb-6">Cloud & AI Engineer</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
             Framingham, MA • Open to work (Recruiters only)
@@ -119,7 +130,7 @@ Every project includes documentation, architecture diagrams, and a breakdown of 
           <p className="text-sm text-gray-500 dark:text-gray-500 mb-8">
             Targeting: Cloud Engineer, DevOps, AI Infrastructure/MLOps roles • Growth path: Cloud Engineer → Platform Engineer → AI Infrastructure Engineer
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-center">
             <a
               href="https://github.com/jamil3424-bit"
               target="_blank"
